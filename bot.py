@@ -12,10 +12,15 @@ from aiogram.types import (
 
 import database as db
 
+from aiogram.client.session.aiohttp import AiohttpSession
+
 BOT_TOKEN = "8845868386:AAEtQUdi5jCJJEjswQfgbevQ9OeMLAZCpCU"
 ADMIN_ID = 5437507666  # ⚠️ Telegram ID
 
-bot = Bot(token=BOT_TOKEN)
+# PythonAnywhere uchun proksi sozlamasi
+session = AiohttpSession(proxy="http://proxy.server:3128")
+
+bot = Bot(token=BOT_TOKEN, session=session)
 dp = Dispatcher()
 
 # Bazani ishga tushirish
